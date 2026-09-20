@@ -1,7 +1,7 @@
 {
   "source": "浙江省台风路径实时发布系统",
   "sourceUrl": "https://typhoon.slt.zj.gov.cn/",
-  "fetchedAt": "2026-09-20T21:09:53.420Z",
+  "fetchedAt": "2026-09-20T21:24:48.748Z",
   "status": "ok",
   "active": true,
   "storms": [
@@ -10,9 +10,9 @@
       "name": "杜鹃",
       "enName": "DUJUAN",
       "current": {
-        "time": "2026-09-21 02:00:00",
-        "lat": 31.3,
-        "lng": 137.9,
+        "time": "2026-09-21 05:00:00",
+        "lat": 32,
+        "lng": 138.2,
         "wind": 11,
         "pressure": 980,
         "speed": 30,
@@ -394,13 +394,24 @@
           "direction": "",
           "strong": "强热带风暴",
           "phase": "past"
+        },
+        {
+          "time": "2026-09-21 02:00:00",
+          "lat": 31.3,
+          "lng": 137.9,
+          "wind": 11,
+          "pressure": 980,
+          "speed": 30,
+          "direction": "",
+          "strong": "强热带风暴",
+          "phase": "past"
         }
       ],
       "forecast": [
         {
-          "time": "2026-09-21 14:00:00",
-          "lat": 33.6,
-          "lng": 139.3,
+          "time": "2026-09-21 17:00:00",
+          "lat": 34,
+          "lng": 140.3,
           "wind": 11,
           "pressure": 980,
           "speed": 30,
@@ -409,9 +420,9 @@
           "phase": "forecast"
         },
         {
-          "time": "2026-09-22 02:00:00",
-          "lat": 36.3,
-          "lng": 143.4,
+          "time": "2026-09-22 05:00:00",
+          "lat": 36.9,
+          "lng": 145.1,
           "wind": 11,
           "pressure": 980,
           "speed": 30,
@@ -420,23 +431,12 @@
           "phase": "forecast"
         },
         {
-          "time": "2026-09-22 14:00:00",
-          "lat": 39,
-          "lng": 149.7,
-          "wind": 11,
-          "pressure": 980,
-          "speed": 30,
-          "direction": "",
-          "strong": "强热带风暴",
-          "phase": "forecast"
-        },
-        {
-          "time": "2026-09-23 02:00:00",
-          "lat": 40.7,
-          "lng": 156.2,
+          "time": "2026-09-22 17:00:00",
+          "lat": 39.1,
+          "lng": 151.3,
           "wind": 10,
-          "pressure": 982,
-          "speed": 28,
+          "pressure": 985,
+          "speed": 25,
           "direction": "",
           "strong": "强热带风暴",
           "phase": "forecast"
