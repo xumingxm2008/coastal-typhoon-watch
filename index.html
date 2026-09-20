@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="沿海台风观察站演示页面" />
+    <title>沿海台风观察站｜演示</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="demo-banner" role="note">
+      <span aria-hidden="true">●</span> 当前页面全部为演示数据，仅用于展示功能与界面，不代表任何实时气象信息或官方预警。
+    </div>
+
+    <header class="site-header">
+      <a class="brand" href="#top" aria-label="沿海台风观察站首页">
+        <span class="brand-mark" aria-hidden="true">◌</span>
+        <span>沿海台风观察站<small>COASTAL TYPHOON WATCH</small></span>
+      </a>
+      <button class="area-select" type="button" aria-label="选择地区">
+        <span aria-hidden="true">⌖</span> 福建省 · 厦门市 <span aria-hidden="true">⌄</span>
+      </button>
+    </header>
+
+    <main id="top">
+      <section class="hero" aria-labelledby="page-title">
+        <p class="eyebrow">演示状态 · 资料时间 09月20日 14:00（北京时间）</p>
+        <div class="hero-row">
+          <div>
+            <h1 id="page-title">台风“海岬”</h1>
+            <p class="storm-id">演示编号 TD-2026-01 · Tropical Storm CAPE</p>
+          </div>
+          <span class="storm-status">海上活动</span>
+        </div>
+      </section>
+
+      <section class="warning-card" aria-labelledby="warning-heading">
+        <div class="warning-icon" aria-hidden="true">!</div>
+        <div class="warning-content">
+          <p class="warning-label">厦门市有效预警 · 演示</p>
+          <h2 id="warning-heading">台风黄色预警信号</h2>
+          <p>厦门市气象台（演示）于 09月20日 12:00 发布，适用区域：厦门市全域。</p>
+        </div>
+        <button class="text-button" type="button" data-dialog="warning-dialog">查看预警详情 <span aria-hidden="true">→</span></button>
+      </section>
+
+      <section class="metrics" aria-label="台风实况数据">
+        <article class="metric-card location">
+          <span class="metric-icon" aria-hidden="true">⌖</span>
+          <div><p>中心位置 <em>演示</em></p><strong>北纬 20.8° · 东经 119.6°</strong><small>距厦门约 350 公里（直线）</small></div>
+        </article>
+        <article class="metric-card direction">
+          <span class="metric-icon" aria-hidden="true">↖</span>
+          <div><p>移动趋势 <em>演示</em></p><strong>向西北方向</strong><small>约 18 km/h</small></div>
+        </article>
+        <article class="metric-card wind">
+          <span class="metric-icon" aria-hidden="true">≋</span>
+          <div><p>中心附近最大风力 <em>演示</em></p><strong>10 级</strong><small>28 m/s · 中心气压 982 hPa</small></div>
+        </article>
+      </section>
+
+      <section class="map-section" aria-labelledby="track-heading">
+        <div class="section-heading">
+          <div><p class="eyebrow">路径示意 · 演示数据</p><h2 id="track-heading">台风路径</h2></div>
+          <div class="legend"><span><i class="solid"></i> 已观测</span><span><i class="dashed"></i> 预报路径</span></div>
+        </div>
+        <div class="map-wrap">
+          <svg class="track-map" viewBox="0 0 900 440" role="img" aria-label="演示台风由东南向西北移动，预测靠近福建沿海的路径图">
+            <defs>
+              <linearGradient id="sea" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#eaf7fb"/><stop offset="1" stop-color="#cde7f1"/></linearGradient>
+              <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity=".17"/></filter>
+            </defs>
+            <rect width="900" height="440" fill="url(#sea)"/>
+            <g fill="none" stroke="#b7d9e5" stroke-width="1"><path d="M0 80H900M0 160H900M0 240H900M0 320H900M0 400H900"/><path d="M100 0V440M250 0V440M400 0V440M550 0V440M700 0V440M850 0V440"/></g>
+            <path d="M0 0H235c-20 38-49 72-74 106-19 27-26 53-23 92 3 43-21 78-53 113-24 26-47 63-85 76Z" fill="#d8e6c9"/>
+            <path d="M235 0c-16 30-53 70-70 105-25 52-14 90-56 145-35 46-68 92-110 114" fill="none" stroke="#8faf7b" stroke-width="3"/>
+            <path d="M295 13c-14 38-4 69 13 95 15 23 16 52 6 74-11 24-9 49 13 76 18 22 24 46 21 75" fill="#d8e6c9" stroke="#8faf7b" stroke-width="3"/>
+            <g fill="#64856d" font-size="16" font-weight="700"><text x="34" y="98">福建</text><text x="110" y="190">广东</text><text x="261" y="78">台湾</text><text x="354" y="398">南海</text></g>
+            <g fill="#7593a0" font-size="13"><text x="355" y="30">东经 123°</text><text x="505" y="30">东经 121°</text><text x="655" y="30">东经 119°</text><text x="720" y="422">北纬 20°</text></g>
+            <path d="M765 346 C704 315 665 276 618 244 S530 186 474 130" fill="none" stroke="#0d7b88" stroke-width="7" stroke-linecap="round" filter="url(#shadow)"/>
+            <path d="M474 130 C421 93 376 68 328 47" fill="none" stroke="#0d7b88" stroke-width="7" stroke-dasharray="4 16" stroke-linecap="round"/>
+            <g fill="#fff" stroke="#0d7b88" stroke-width="4"><circle cx="765" cy="346" r="8"/><circle cx="680" cy="300" r="8"/><circle cx="618" cy="244" r="8"/></g>
+            <g fill="#fff" stroke="#0d7b88" stroke-width="4"><circle cx="474" cy="130" r="8"/><circle cx="395" cy="82" r="8"/><circle cx="328" cy="47" r="8"/></g>
+            <g transform="translate(618 244)" filter="url(#shadow)"><circle r="35" fill="#e6ae25" opacity=".25"/><circle r="21" fill="#e6ae25"/><path d="M0-12c8 9 10 19 1 25-9 6-20 1-20-10 0-7 7-15 19-15Z" fill="#fff"/><circle r="4" fill="#e6ae25"/></g>
+            <g fill="#315664" font-size="14" font-weight="700"><text x="630" y="235">20日 14:00</text><text x="487" y="117">21日 14:00</text><text x="340" y="36">22日 14:00</text></g>
+            <g transform="translate(142 124)"><circle r="7" fill="#f3a51d"/><text x="14" y="5" fill="#315664" font-size="14" font-weight="700">厦门</text></g>
+          </svg>
+          <div class="map-note"><span aria-hidden="true">ⓘ</span> 预测路径具有不确定性；此图仅为演示，不能作为防灾决策依据。</div>
+        </div>
+        <div class="track-list" aria-label="路径时间列表">
+          <div><time>20日 14:00</time><b>实况</b><span>20.8°N · 119.6°E</span><strong>10级</strong></div>
+          <div><time>21日 14:00</time><b class="forecast">预报</b><span>22.3°N · 118.2°E</span><strong>11级</strong></div>
+          <div><time>22日 14:00</time><b class="forecast">预报</b><span>24.0°N · 116.7°E</span><strong>10级</strong></div>
+        </div>
+      </section>
+
+      <section class="preparedness" aria-labelledby="prepare-heading">
+        <div><p class="eyebrow">防御提示 · 演示文案</p><h2 id="prepare-heading">黄色预警期间，请做好防风准备</h2><p>远离广告牌、临时搭建物和海岸危险区域；关注当地气象部门、应急管理部门发布的正式通知。</p></div>
+        <a href="docs/项目计划书.md">查看项目计划书 <span aria-hidden="true">→</span></a>
+      </section>
+    </main>
+
+    <footer>沿海台风观察站 · 界面原型 <span>所有台风、位置、路径和预警均为演示数据</span></footer>
+
+    <dialog id="warning-dialog">
+      <button class="dialog-close" type="button" data-close aria-label="关闭">×</button>
+      <p class="eyebrow">演示预警详情</p><h2>台风黄色预警信号</h2>
+      <p>这是用于演示页面结构的虚构信息。实际产品应展示气象主管部门的完整原文、发布单位、适用区域、发布时间、更新或解除状态和原始链接。</p>
+      <p class="dialog-note">请以当地气象部门发布的正式预警为准。</p>
+    </dialog>
+    <script src="app.js"></script>
+  </body>
+</html>
