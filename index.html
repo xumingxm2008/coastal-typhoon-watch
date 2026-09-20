@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="demo-banner" role="note">
-      <span aria-hidden="true">●</span> 当前页面全部为演示数据，仅用于展示功能与界面，不代表任何实时气象信息或官方预警。
+    <div class="demo-banner" role="note" id="data-status">
+      <span aria-hidden="true">●</span> 正在读取台风路径数据；预警信息目前仍为演示内容。
     </div>
 
     <header class="site-header">
@@ -24,11 +24,11 @@
 
     <main id="top">
       <section class="hero" aria-labelledby="page-title">
-        <p class="eyebrow">演示状态 · 资料时间 09月20日 14:00（北京时间）</p>
+        <p class="eyebrow" id="updated-at">浙江省台风路径实时发布系统 · 正在读取</p>
         <div class="hero-row">
           <div>
-            <h1 id="page-title">台风“海岬”</h1>
-            <p class="storm-id">演示编号 TD-2026-01 · Tropical Storm CAPE</p>
+            <h1 id="page-title">正在读取台风信息</h1>
+            <p class="storm-id" id="storm-id">资料来源：浙江省台风路径实时发布系统</p>
           </div>
           <span class="storm-status">海上活动</span>
         </div>
@@ -47,25 +47,25 @@
       <section class="metrics" aria-label="台风实况数据">
         <article class="metric-card location">
           <span class="metric-icon" aria-hidden="true">⌖</span>
-          <div><p>中心位置 <em>演示</em></p><strong>北纬 20.8° · 东经 119.6°</strong><small>距厦门约 350 公里（直线）</small></div>
+          <div><p>中心位置</p><strong id="location-value">—</strong><small id="location-detail">等待数据</small></div>
         </article>
         <article class="metric-card direction">
           <span class="metric-icon" aria-hidden="true">↖</span>
-          <div><p>移动趋势 <em>演示</em></p><strong>向西北方向</strong><small>约 18 km/h</small></div>
+          <div><p>移动趋势</p><strong id="direction-value">—</strong><small id="direction-detail">等待数据</small></div>
         </article>
         <article class="metric-card wind">
           <span class="metric-icon" aria-hidden="true">≋</span>
-          <div><p>中心附近最大风力 <em>演示</em></p><strong>10 级</strong><small>28 m/s · 中心气压 982 hPa</small></div>
+          <div><p>中心附近最大风力</p><strong id="wind-value">—</strong><small id="wind-detail">等待数据</small></div>
         </article>
       </section>
 
       <section class="map-section" aria-labelledby="track-heading">
         <div class="section-heading">
-          <div><p class="eyebrow">路径示意 · 演示数据</p><h2 id="track-heading">台风路径</h2></div>
+          <div><p class="eyebrow" id="track-source">路径示意</p><h2 id="track-heading">台风路径</h2></div>
           <div class="legend"><span><i class="solid"></i> 已观测</span><span><i class="dashed"></i> 预报路径</span></div>
         </div>
         <div class="map-wrap">
-          <svg class="track-map" viewBox="0 0 900 440" role="img" aria-label="演示台风由东南向西北移动，预测靠近福建沿海的路径图">
+          <svg class="track-map" id="track-map" viewBox="0 0 900 440" role="img" aria-label="台风路径图">
             <defs>
               <linearGradient id="sea" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#eaf7fb"/><stop offset="1" stop-color="#cde7f1"/></linearGradient>
               <filter id="shadow"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-opacity=".17"/></filter>
@@ -77,21 +77,11 @@
             <path d="M295 13c-14 38-4 69 13 95 15 23 16 52 6 74-11 24-9 49 13 76 18 22 24 46 21 75" fill="#d8e6c9" stroke="#8faf7b" stroke-width="3"/>
             <g fill="#64856d" font-size="16" font-weight="700"><text x="34" y="98">福建</text><text x="110" y="190">广东</text><text x="261" y="78">台湾</text><text x="354" y="398">南海</text></g>
             <g fill="#7593a0" font-size="13"><text x="355" y="30">东经 123°</text><text x="505" y="30">东经 121°</text><text x="655" y="30">东经 119°</text><text x="720" y="422">北纬 20°</text></g>
-            <path d="M765 346 C704 315 665 276 618 244 S530 186 474 130" fill="none" stroke="#0d7b88" stroke-width="7" stroke-linecap="round" filter="url(#shadow)"/>
-            <path d="M474 130 C421 93 376 68 328 47" fill="none" stroke="#0d7b88" stroke-width="7" stroke-dasharray="4 16" stroke-linecap="round"/>
-            <g fill="#fff" stroke="#0d7b88" stroke-width="4"><circle cx="765" cy="346" r="8"/><circle cx="680" cy="300" r="8"/><circle cx="618" cy="244" r="8"/></g>
-            <g fill="#fff" stroke="#0d7b88" stroke-width="4"><circle cx="474" cy="130" r="8"/><circle cx="395" cy="82" r="8"/><circle cx="328" cy="47" r="8"/></g>
-            <g transform="translate(618 244)" filter="url(#shadow)"><circle r="35" fill="#e6ae25" opacity=".25"/><circle r="21" fill="#e6ae25"/><path d="M0-12c8 9 10 19 1 25-9 6-20 1-20-10 0-7 7-15 19-15Z" fill="#fff"/><circle r="4" fill="#e6ae25"/></g>
-            <g fill="#315664" font-size="14" font-weight="700"><text x="630" y="235">20日 14:00</text><text x="487" y="117">21日 14:00</text><text x="340" y="36">22日 14:00</text></g>
-            <g transform="translate(142 124)"><circle r="7" fill="#f3a51d"/><text x="14" y="5" fill="#315664" font-size="14" font-weight="700">厦门</text></g>
+            <g id="track-layer"></g>
           </svg>
-          <div class="map-note"><span aria-hidden="true">ⓘ</span> 预测路径具有不确定性；此图仅为演示，不能作为防灾决策依据。</div>
+          <div class="map-note"><span aria-hidden="true">ⓘ</span> 路径点来自浙江省台风路径实时发布系统；预测路径具有不确定性，防灾请以当地正式预警为准。</div>
         </div>
-        <div class="track-list" aria-label="路径时间列表">
-          <div><time>20日 14:00</time><b>实况</b><span>20.8°N · 119.6°E</span><strong>10级</strong></div>
-          <div><time>21日 14:00</time><b class="forecast">预报</b><span>22.3°N · 118.2°E</span><strong>11级</strong></div>
-          <div><time>22日 14:00</time><b class="forecast">预报</b><span>24.0°N · 116.7°E</span><strong>10级</strong></div>
-        </div>
+        <div class="track-list" id="track-list" aria-label="路径时间列表"></div>
       </section>
 
       <section class="preparedness" aria-labelledby="prepare-heading">

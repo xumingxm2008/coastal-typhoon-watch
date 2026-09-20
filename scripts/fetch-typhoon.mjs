@@ -1,0 +1,13 @@
+import { mkdir, readFile, rename, writeFile } from 'node:fs/promises';
+
+const source = 'https://typhoon.slt.zj.gov.cn';
+const api = `${source}/Api`;
+const output = new URL('../data/typhoon.json', import.meta.url);
+const headers = { Referer: `${source}/`, 'User-Agent': 'coastal-typhoon-watch/1.0 (+https://github.com/xumingxm2008/coastal-typhoon-watch)' };
+const number = (value) => Number.isFinite(Number(value)) ? Number(value) : null;
+const bjYear = () => new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year: 'numeric' }).format(new Date());
+async function getJson(url) { const response = await fetch(url, { headers, signal: AbortSignal.timeout(25_000) }); if (!response.ok) throw new Error(`${response.status} ${response.statusText}`); return response.json(); }
+function point(item, phase) { return { time: item.time, lat: number(item.lat), lng: number(item.lng), wind: number(item.power), pressure: number(item.pressure), speed: number(item.speed), direction: item.direction || '', strong: item.strong || '', phase }; }
+async function collect() { const list = await getJson(`${api}/TyphoonList/${bjYear()}`); const active = list.filter((item) => String(item.isactive) === '1'); const storms = await Promise.all(active.map(async (item) => { const info = await getJson(`${api}/TyphoonInfo/${item.tfid}`); const points = Array.isArray(info.points) ? info.points : []; const latest = points.at(-1); if (!latest) return null; const agency = (latest.forecast || []).find((entry) => entry.tm === '中国') || latest.forecast?.[0]; const forecast = (agency?.forecastpoints || []).filter((entry) => entry.time !== latest.time).map((entry) => point(entry, 'forecast')); return { id: String(info.tfid || item.tfid), name: info.name || item.name || '未命名台风', enName: info.enname || item.enname || '', current: point(latest, 'current'), past: points.slice(0, -1).map((entry) => point(entry, 'past')), forecast, forecastAgency: agency?.tm || null }; })); return storms.filter(Boolean); }
+async function main() { let storms; try { storms = await collect(); } catch (error) { try { await readFile(output); console.error(`Fetch failed; preserving previous data: ${error.message}`); process.exit(1); } catch { throw error; } } const payload = { source: '浙江省台风路径实时发布系统', sourceUrl: `${source}/`, fetchedAt: new Date().toISOString(), status: 'ok', active: storms.length > 0, storms }; await mkdir(new URL('../data/', import.meta.url), { recursive: true }); const temporary = new URL('../data/typhoon.next.json', import.meta.url); await writeFile(temporary, `${JSON.stringify(payload, null, 2)}\n`); await rename(temporary, output); console.log(`Saved ${storms.length} active storm(s).`); }
+main().catch((error) => { console.error(error); process.exit(1); });
