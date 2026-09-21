@@ -1,7 +1,7 @@
 {
   "source": "浙江省台风路径实时发布系统",
   "sourceUrl": "https://typhoon.slt.zj.gov.cn/",
-  "fetchedAt": "2026-09-21T09:11:36.597Z",
+  "fetchedAt": "2026-09-21T09:28:42.832Z",
   "status": "ok",
   "active": true,
   "storms": [
@@ -10,14 +10,14 @@
       "name": "杜鹃",
       "enName": "DUJUAN",
       "current": {
-        "time": "2026-09-21 14:00:00",
-        "lat": 33.7,
-        "lng": 139.8,
-        "wind": 11,
-        "pressure": 980,
-        "speed": 30,
+        "time": "2026-09-21 17:00:00",
+        "lat": 34.5,
+        "lng": 140.5,
+        "wind": 12,
+        "pressure": 970,
+        "speed": 33,
         "direction": "",
-        "strong": "强热带风暴",
+        "strong": "台风",
         "phase": "current"
       },
       "past": [
@@ -438,13 +438,24 @@
           "direction": "",
           "strong": "强热带风暴",
           "phase": "past"
+        },
+        {
+          "time": "2026-09-21 14:00:00",
+          "lat": 33.7,
+          "lng": 139.8,
+          "wind": 11,
+          "pressure": 980,
+          "speed": 30,
+          "direction": "",
+          "strong": "强热带风暴",
+          "phase": "past"
         }
       ],
       "forecast": [
         {
-          "time": "2026-09-22 02:00:00",
-          "lat": 36.4,
-          "lng": 143.7,
+          "time": "2026-09-22 05:00:00",
+          "lat": 37.7,
+          "lng": 146.9,
           "wind": 11,
           "pressure": 980,
           "speed": 30,
@@ -453,9 +464,9 @@
           "phase": "forecast"
         },
         {
-          "time": "2026-09-22 14:00:00",
-          "lat": 38.8,
-          "lng": 149.9,
+          "time": "2026-09-22 17:00:00",
+          "lat": 40.3,
+          "lng": 154,
           "wind": 10,
           "pressure": 985,
           "speed": 25,
